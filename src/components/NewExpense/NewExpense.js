@@ -3,30 +3,27 @@ import React from 'react';
 import ExpenseForm from './ExpenseForm';
 import './NewExpense.css';
 
-// 3b. Add props to be passed in so we can use App.addExpenseHandler().
-// 3. We are now taking in props from App: pass it into NewExpense.
 const NewExpense = (props) => {
-
-  // 4. Make a function that enriches the prop that's passed in...
+  // 7. The data from ExpenseForm gets enriched.
   const saveExpenseDataHandler = (enteredExpenseData) => {
+    // enriches the data
     const expenseData = {
       ...enteredExpenseData,
       id: Math.random().toString()
     };
-    // 5. And then passes it up to App.addExpenseHandler.
+    // 3. We are now taking in props.onAddExpense()/App.addExpenseHandler().
+    //    Pass in the enriched expenseData.
+    //    But where is that data coming from?
+    // 8. Execute pointer to App.addExpenseHandler with the expenseData.
     props.onAddExpense(expenseData);
   };
 
+  // ExpenseForm generates the data.
   return (
     <div className='new-expense'>
       <ExpenseForm
-          // 5. Add a listener to ExpenseForm and assign it to saveExpenseDataHandler.
-          onSaveExpenseData=
-              // Now hitting submit will
-              // 1f. assign the enriching function to the prop onSaveExpenseData
-              // (now we can use it in ExpenseForm...)
-              // 2c. expenseData gets passed into saveExpenseDataHandler.
-              {saveExpenseDataHandler}
+          // 4. Add a listener to ExpenseForm and point it to saveExpenseDataHandler.
+          onSaveExpenseData={saveExpenseDataHandler}
       />
     </div>
   );

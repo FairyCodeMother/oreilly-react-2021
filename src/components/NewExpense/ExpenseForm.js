@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import './ExpenseForm.css';
 
-// 2a. Add (props) since we are getting them from NewExpense...
+// 5. We are now taking in props.onSaveExpenseData.
 const ExpenseForm = (props) => {
   // Set states for your data
   const [enteredTitle, setEnteredTitle] = useState('');
@@ -43,6 +43,7 @@ const ExpenseForm = (props) => {
     // });
   };
 
+  // 5. We want to use props.onSaveExpenseData when user hits submit.
   const submitHandler = (event) => {
     event.preventDefault();
 
@@ -52,8 +53,7 @@ const ExpenseForm = (props) => {
       date: new Date(enteredDate),
     };
 
-    // 2b. Execute the pointer to NewExpense.saveExpenseDataHandler(expenseData).
-    // 4b. Data from child is passed up to NewExpense.saveExpenseDataHandler().
+    // 6. Execute the pointer to NewExpense.saveExpenseDataHandler with the data.
     props.onSaveExpenseData(expenseData);
     setEnteredTitle('');
     setEnteredAmount('');

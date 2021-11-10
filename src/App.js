@@ -4,9 +4,14 @@ import NewExpense from './components/NewExpense/NewExpense';  // Generates State
 import Expenses from './components/Expenses/Expenses';        // Uses State data
 
 const App = () => {
-  // Goal: To get this data into the Expenses component to display it as a State
-  // Use NewExpense to convert the data into State.
-  // Use Expenses to display the State.
+  // Goal: To get this data into App to display as a State
+  // Use ExpenseForm to generate the data then lift it into NewExpenses to turn it into a State that can be passed into Expenses.
+  // Strategy:
+  // 1. Pass expenses into NewExpenses to turn it into a usable data.
+  // 2. Pass enriched data into ExpenseForm. When a submission is triggered the expense data is created by ExpenseForm and passed up to NewExpense.
+  // 3. NewExpense enriches the data and passes it up into App, where it can be passed into Expenses.
+  // // // Try starting at the end and working towards the front. // // //
+
   const expenses = [
     {
       id: 'e1',
@@ -29,21 +34,18 @@ const App = () => {
     },
   ];
 
-  // 3d. Create the new Handler to accept the passed-up expenseData
-  // 1. Create a Handler that takes in the expenses. This is where it will end up.
+  // 1. Create a Handler that will take in and use expenses. This is where it will end up.
+  // 9. expenseData is used in App!
   const addExpenseHandler = (expense) => {
-    // 3e. Do stuff with it.
     console.log("In App");
-    // 4e. Where it's used.
     console.log(expense);
   };
 
-  // 2g. NewExpense passes UP the enriched data, to be fed into a Handler
-  // 2. Add a listener to NewExpense and assign it to addExpenseHandler. To NewExpense....
+  // 2. We need to pass the Handler down into the Child.
+  //    Add a listener to NewExpense and assign it to our new Handler.
+  //    To NewExpense....
   return (
       <div>
-        {/*// 3a. Assign a new onAddExpense prop to the child and assign addExpenseHandler to it.*/}
-        {/*       Update NewExpense to accept props.*/}
         <NewExpense onAddExpense={addExpenseHandler} />
         <Expenses items={expenses} />
       </div>
