@@ -3,7 +3,7 @@ import Expenses from './components/Expenses/Expenses';
 import NewExpense from './components/NewExpense/NewExpense';
 
 const App = () => {
-  // 1a. To get this data to be pre-populates expense entries...
+  // 1a. We want to get this data into the Expenses component to display it.
   const expenses = [
     {
       id: 'e1',
@@ -26,18 +26,21 @@ const App = () => {
     },
   ];
 
-  // 3b. Create the new Handler to accept the passed-up expenses
+  // 3d. Create the new Handler to accept the passed-up expenseData
   const addExpenseHandler = (expense) => {
+    // 3e. Do stuff with it.
     console.log("In App");
+    // 4e. Where it's used.
     console.log(expense);
   };
 
-  // 1b. We first look to NewExpense...
   // 2g. NewExpense passes UP the enriched data, to be fed into a Handler
-  // 3a. Assign a new App Handler to the onAddExpense prop
-  // 4b. Now NewExpense gets the enriched expenseData and passes it to addExpenseHandler
   return (
       <div>
+        {/*// 1b. But we need to turn it into handle-able data by turning it into a State.*/}
+        {/*// 1c. NewExpense is where data is set as State so we go into NewExpense...*/}
+        {/*// 3a. Assign a new onAddExpense prop to the child and assign addExpenseHandler to it.*/}
+        {/*       Update NewExpense to accept props.*/}
         <NewExpense onAddExpense={addExpenseHandler} />
         <Expenses items={expenses} />
       </div>

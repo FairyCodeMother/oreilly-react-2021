@@ -2,10 +2,14 @@ import React, { useState } from 'react';
 
 import './ExpenseForm.css';
 
+// 2a. Add (props) since we are getting them from NewExpense...
 const ExpenseForm = (props) => {
+  // Set states for your data
   const [enteredTitle, setEnteredTitle] = useState('');
   const [enteredAmount, setEnteredAmount] = useState('');
   const [enteredDate, setEnteredDate] = useState('');
+
+  // Can set multiple States at once if you bundle them into an object
   // const [userInput, setUserInput] = useState({
   //   enteredTitle: '',
   //   enteredAmount: '',
@@ -48,6 +52,10 @@ const ExpenseForm = (props) => {
       date: new Date(enteredDate),
     };
 
+    // 2b. Execute the prop onSaveExpenseData(), which is a pointer to
+    //     Parent's saveExpenseDataHandler, to trigger:
+    //     NewExpense.saveExpenseDataHandler(expenseData)
+    // 4b. Data from child is passed up to NewExpense.saveExpenseDataHandler().
     props.onSaveExpenseData(expenseData);
     setEnteredTitle('');
     setEnteredAmount('');
@@ -62,7 +70,7 @@ const ExpenseForm = (props) => {
           <input
             type='text'
             value={enteredTitle}
-            onChange={titleChangeHandler}
+            onChange={titleChangeHandler} // listens to user input
           />
         </div>
         <div className='new-expense__control'>
@@ -72,7 +80,7 @@ const ExpenseForm = (props) => {
             min='0.01'
             step='0.01'
             value={enteredAmount}
-            onChange={amountChangeHandler}
+            onChange={amountChangeHandler} // listens to user input
           />
         </div>
         <div className='new-expense__control'>
@@ -82,7 +90,7 @@ const ExpenseForm = (props) => {
             min='2019-01-01'
             max='2022-12-31'
             value={enteredDate}
-            onChange={dateChangeHandler}
+            onChange={dateChangeHandler} // listens to user input
           />
         </div>
       </div>
