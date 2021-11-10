@@ -1,9 +1,9 @@
 import React from 'react';
-
-import NewExpense from './components/NewExpense/NewExpense';
 import Expenses from './components/Expenses/Expenses';
+import NewExpense from './components/NewExpense/NewExpense';
 
 const App = () => {
+  // 1a. To get this data to be pre-populates expense entries...
   const expenses = [
     {
       id: 'e1',
@@ -26,23 +26,21 @@ const App = () => {
     },
   ];
 
-  const addExpenseHandler = expense => {
-    console.log('In App.js');
+  // 3b. Create the new Handler to accept the passed-up expenses
+  const addExpenseHandler = (expense) => {
+    console.log("In App");
     console.log(expense);
   };
 
-  // return React.createElement(
-  //   'div',
-  //   {},
-  //   React.createElement('h2', {}, "Let's get started!"),
-  //   React.createElement(Expenses, { items: expenses })
-  // );
-
+  // 1b. We first look to NewExpense...
+  // 2g. NewExpense passes UP the enriched data, to be fed into a Handler
+  // 3a. Assign a new App Handler to the onAddExpense prop
+  // 4b. Now NewExpense gets the enriched expenseData and passes it to addExpenseHandler
   return (
-    <div>
-      <NewExpense onAddExpense={addExpenseHandler} />
-      <Expenses items={expenses} />
-    </div>
+      <div>
+        <NewExpense onAddExpense={addExpenseHandler} />
+        <Expenses items={expenses} />
+      </div>
   );
 }
 
