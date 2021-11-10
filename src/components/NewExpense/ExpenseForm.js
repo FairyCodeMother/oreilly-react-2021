@@ -52,9 +52,7 @@ const ExpenseForm = (props) => {
       date: new Date(enteredDate),
     };
 
-    // 2b. Execute the prop onSaveExpenseData(), which is a pointer to
-    //     Parent's saveExpenseDataHandler, to trigger:
-    //     NewExpense.saveExpenseDataHandler(expenseData)
+    // 2b. Execute the pointer to NewExpense.saveExpenseDataHandler(expenseData).
     // 4b. Data from child is passed up to NewExpense.saveExpenseDataHandler().
     props.onSaveExpenseData(expenseData);
     setEnteredTitle('');

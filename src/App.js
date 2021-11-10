@@ -1,9 +1,12 @@
 import React from 'react';
-import Expenses from './components/Expenses/Expenses';
-import NewExpense from './components/NewExpense/NewExpense';
+
+import NewExpense from './components/NewExpense/NewExpense';  // Generates State data via ExpenseForm on submit
+import Expenses from './components/Expenses/Expenses';        // Uses State data
 
 const App = () => {
-  // 1a. We want to get this data into the Expenses component to display it.
+  // Goal: To get this data into the Expenses component to display it as a State
+  // Use NewExpense to convert the data into State.
+  // Use Expenses to display the State.
   const expenses = [
     {
       id: 'e1',
@@ -27,6 +30,7 @@ const App = () => {
   ];
 
   // 3d. Create the new Handler to accept the passed-up expenseData
+  // 1. Create a Handler that takes in the expenses. This is where it will end up.
   const addExpenseHandler = (expense) => {
     // 3e. Do stuff with it.
     console.log("In App");
@@ -35,10 +39,9 @@ const App = () => {
   };
 
   // 2g. NewExpense passes UP the enriched data, to be fed into a Handler
+  // 2. Add a listener to NewExpense and assign it to addExpenseHandler. To NewExpense....
   return (
       <div>
-        {/*// 1b. But we need to turn it into handle-able data by turning it into a State.*/}
-        {/*// 1c. NewExpense is where data is set as State so we go into NewExpense...*/}
         {/*// 3a. Assign a new onAddExpense prop to the child and assign addExpenseHandler to it.*/}
         {/*       Update NewExpense to accept props.*/}
         <NewExpense onAddExpense={addExpenseHandler} />
