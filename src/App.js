@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import NewExpense from './components/NewExpense/NewExpense';  // Generates State data via ExpenseForm on submit
 import Expenses from './components/Expenses/Expenses';        // Uses State data
