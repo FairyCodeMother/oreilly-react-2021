@@ -2,48 +2,24 @@ import React, { useState } from 'react';
 
 import './ExpenseForm.css';
 
-// 5. We are now taking in props.onSaveExpenseData.
 const ExpenseForm = (props) => {
   // Set states for your data
   const [enteredTitle, setEnteredTitle] = useState('');
   const [enteredAmount, setEnteredAmount] = useState('');
   const [enteredDate, setEnteredDate] = useState('');
 
-  // Can set multiple States at once if you bundle them into an object
-  // const [userInput, setUserInput] = useState({
-  //   enteredTitle: '',
-  //   enteredAmount: '',
-  //   enteredDate: '',
-  // });
-
   const titleChangeHandler = (event) => {
     setEnteredTitle(event.target.value);
-    // setUserInput({
-    //   ...userInput,
-    //   enteredTitle: event.target.value,
-    // });
-    // setUserInput((prevState) => {
-    //   return { ...prevState, enteredTitle: event.target.value };
-    // });
   };
 
   const amountChangeHandler = (event) => {
     setEnteredAmount(event.target.value);
-    // setUserInput({
-    //   ...userInput,
-    //   enteredAmount: event.target.value,
-    // });
   };
 
   const dateChangeHandler = (event) => {
     setEnteredDate(event.target.value);
-    // setUserInput({
-    //   ...userInput,
-    //   enteredDate: event.target.value,
-    // });
   };
 
-  // 5. We want to use props.onSaveExpenseData when user hits submit.
   const submitHandler = (event) => {
     event.preventDefault();
 
@@ -53,7 +29,6 @@ const ExpenseForm = (props) => {
       date: new Date(enteredDate),
     };
 
-    // 6. Execute the pointer to NewExpense.saveExpenseDataHandler with the data.
     props.onSaveExpenseData(expenseData);
     setEnteredTitle('');
     setEnteredAmount('');

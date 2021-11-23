@@ -2,7 +2,6 @@ import React from 'react';
 
 import './ExpensesFilter.css';
 
-// We need to be able to listen to changes from the ExpensesFilter's dropdown.
 const ExpensesFilter = (props) => {
 
 	// OnChange serves us events.
