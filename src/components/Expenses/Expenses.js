@@ -5,8 +5,7 @@ import Card from '../UI/Card';
 import './Expenses.css';
 import ExpensesFilter from "./ExpensesFilter";
 
-// To improve performance and robustness, tell React WHERE to add a new item.
-// Go to where we output each ExpenseItem...
+// We want to be able to filter the Expenses by filteredYear...
 const Expenses = (props) => {
     const [filteredYear, setFilteredYear] = useState('2022');
 
@@ -14,16 +13,25 @@ const Expenses = (props) => {
         setFilteredYear(filteredYear);
     };
 
+    // 1. We get all the Expense items in props.items so we only
+    //    need to restrict which are shown via a new function.
+    const filteredExpenses = props.items.filter(expense => {
+        // 2. We ensure it comes back as a String and then compare
+        return expense.date.getFullYear().toString() === filteredYear;
+    });
+
     return (
         <Card className="expenses">
             <ExpensesFilter
                 selectedYear={filteredYear}
                 onFilterChange={filterChangeHandler}
             />
-            {props.items.map(expense =>
+            {/*3. Replace props.items with filteredExpenses */}
+            {/*4. Set up a conditional display: special message if no items */}
+            {filteredExpenses.length === 0 ?
+                <p> No Expenses Found. </p> :
+                filteredExpenses.map(expense =>
                 <ExpenseItem
-                    // Keys are used by React to identify specific Component instances.
-                    // Each Expense has a unique id that can be used as the ExpenseItem key
                     key={expense.id}
                     title={expense.title}
                     amount={expense.amount}
