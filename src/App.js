@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 
-import NewExpense from './components/NewExpense/NewExpense';  // Generates State data via ExpenseForm on submit
-import Expenses from './components/Expenses/Expenses';        // Uses State data
+import NewExpense from './components/NewExpense/NewExpense';
+import Expenses from './components/Expenses/Expenses';
 
-// Filter by Year
 const DUMMY_VALUES = [
   {
     id: 'e1',
@@ -35,7 +34,6 @@ const App = () => {
     });
   };
 
-  // The Year filter is in Expenses...
   return (
       <div>
         <NewExpense onAddExpense={addExpenseHandler} />
