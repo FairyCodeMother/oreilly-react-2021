@@ -5,7 +5,6 @@ import Card from '../UI/Card';
 import './ExpenseItem.css';
 
 const ExpenseItem = (props) => {
-  // 8. Wrap the Card in a List Item.
   return (
       <li>
           <Card className='expense-item'>
