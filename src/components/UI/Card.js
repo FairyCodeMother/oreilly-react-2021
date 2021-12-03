@@ -1,3 +1,7 @@
+//
+// Primary container to display Components.
+//
+
 import React from 'react';
 
 import './Card.css';

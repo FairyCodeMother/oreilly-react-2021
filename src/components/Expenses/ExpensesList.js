@@ -1,3 +1,7 @@
+//
+// Creates the unordered list of ExpenseItems.
+//
+
 import React from 'react';
 
 import ExpenseItem from './ExpenseItem';

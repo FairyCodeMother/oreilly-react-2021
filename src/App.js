@@ -1,3 +1,7 @@
+//
+// Task: Add a  Bar Chart.
+//
+
 import React, { useState } from 'react';
 
 import NewExpense from './components/NewExpense/NewExpense';
@@ -25,9 +29,6 @@ const DUMMY_VALUES = [
   },
 ];
 
-// Have conditional rendering of the ExpenseForm such that:
-//   A button displays the ExpenseForm and hides itself.
-//   Upon Form submission, the ExpenseForm hides and the button reappears.
 
 const App = () => {
   const [expenses, setExpenses] = useState(DUMMY_VALUES);
@@ -38,7 +39,6 @@ const App = () => {
     });
   };
 
-// The ExpenseForm is called by NewExpense so we start in there.
   return (
       <div>
         <NewExpense onAddExpense={addExpenseHandler} />

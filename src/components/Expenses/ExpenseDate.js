@@ -1,3 +1,7 @@
+//
+// Object that renders the styled date display for each ExpenseItem in the ExpenseList.
+//
+
 import React from 'react';
 
 import './ExpenseDate.css';

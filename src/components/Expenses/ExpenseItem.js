@@ -1,3 +1,7 @@
+//
+// Object that renders a single Card that displays the ExpenseDate component and the values of a single expense.
+//
+
 import React from 'react';
 
 import ExpenseDate from './ExpenseDate';

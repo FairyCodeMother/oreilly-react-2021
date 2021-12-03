@@ -1,3 +1,7 @@
+//
+// Object that renders the expenses display portion of the App.
+//
+
 import React, { useState } from 'react';
 
 import ExpensesList from "./ExpensesList";
