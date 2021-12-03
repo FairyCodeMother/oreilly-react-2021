@@ -16,11 +16,18 @@ const NewExpense = (props) => {
             id: randomId
         };
         props.onAddExpense(expenseData);
+        // 9. Form saving also sets isEditing to false.
+        setIsEditing(false)
     };
 
-    // 3. Create Handler to toggle the button: Button = true; Form submission = false.
+    // 3. Create Handler to toggle true; used by button in NewExpense.
     const startEditingHandler = () => {
         setIsEditing(true)
+    };
+
+    // 6. Create Handler to toggle false; used by button in ExpenseForm.
+    const stopEditingHandler = () => {
+        setIsEditing(false)
     };
 
     // ExpenseForm generates the data to be displayed.
@@ -29,6 +36,7 @@ const NewExpense = (props) => {
     // 4. Pass the Handler into the onClick listener, then wrap everything
     //    in a conditional so it's only visible if isEditing is false.
     // 5. Also wrap the Expense form in the inverse condition.
+    // 7. Add the onCancel Handler to pass in the stopEditingHandler.
     return (
         <div className='new-expense'>
             {!isEditing &&
@@ -39,6 +47,7 @@ const NewExpense = (props) => {
             {isEditing &&
                 <ExpenseForm
                     onSaveExpenseData={saveExpenseDataHandler}
+                    onCancel={stopEditingHandler}
                 />
             }
         </div>
