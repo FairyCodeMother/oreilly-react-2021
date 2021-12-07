@@ -10,7 +10,7 @@ import Chart from "../Chart/Chart";
 
 const ExpensesChart = (props) => {
     // 6. Create an collection of dataPoints with a value for each month.
-    //    Note that Jan = 0 index.
+    //    Note: Jan = 0 index.
     const chartDataPoints = [
         { label: 'Jan', value: 0 },
         { label: 'Feb', value: 0 },

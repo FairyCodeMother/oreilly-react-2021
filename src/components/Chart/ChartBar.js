@@ -12,18 +12,15 @@ const ChartBar = (props) => {
         barFillHeight = Math.round((props.value / props.maxValue) * 100) + '%';
     }
 
-    // 5. And then use that value to define the style for the bar's height.
+    // 5. And then use that value to define the ChartBar's height.
     return (
         <div className={"chart-bar"}>
             <div className={"chart-bar__inner"}>
                 <div className={"chart-bar__fill"} style={{height: barFillHeight}}/>
             </div>
             <div className={"chart-bar__label"}>{props.label}</div>
-
         </div>
-
     )
-
 }
 
 export default ChartBar;
