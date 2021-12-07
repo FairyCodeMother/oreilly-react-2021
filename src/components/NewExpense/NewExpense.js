@@ -17,6 +17,7 @@ const NewExpense = (props) => {
             id: randomId
         };
         props.onAddExpense(expenseData);
+        console.log('GINASAURUS: NewExpense: expenseData: ',expenseData);
         setIsEditing(false)
     };
 

@@ -1,14 +1,23 @@
+//
+// Object that passes data into ChartBar and displays the result.
+//
+import React from 'react';
+
 import ChartBar from "./ChartBar";
 import './Chart.css';
 
 // 3. Create a Container that feeds each dataPoint into ChartBar to
 //    display all monthly expenses.
 const Chart = (props) => {
-    // 9. Now that we have the dataPoints we can base the chart on the largest value by
-    //    mapping all values into an array then using Math.max to get the largest one..
-    const dataPointValues = props.dataPoints.map(dataPoint => dataPoint.value)
+    // 9. Make an array from all the values in this collection.
+    const dataPointValues = props.dataPoints.map(dataPoint => dataPoint.value);
+    // 10. Get the largest value from the array top be the max height of the Chart.
     const totalMaximum = Math.max(...dataPointValues);
 
+    console.log('GINASAURUS: Chart: dataPointValues: ');
+    console.log(dataPointValues);
+
+    // 11. And set maxValue to the totalMaximum.
     return (
         <div className='chart'>
             {props.dataPoints.map( (dataPoint) => (
@@ -17,7 +26,6 @@ const Chart = (props) => {
                     value={ dataPoint.value }
                     maxValue={ totalMaximum }
                     label={ dataPoint.label }
-                    max={ totalMaximum }
                 />
             ))}
         </div>

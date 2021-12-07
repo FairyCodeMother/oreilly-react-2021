@@ -5,11 +5,10 @@
 // 1. Create a container to display the Chart of Expenses.
 import React from 'react';
 
-import '../Chart/ChartBar';
 import Chart from "../Chart/Chart";
 
 const ExpensesChart = (props) => {
-    // 6. Create an collection of dataPoints with a value for each month.
+    // 6. Create an collection of objects with a value for each month.
     //    Note: Jan = 0 index.
     const chartDataPoints = [
         { label: 'Jan', value: 0 },
@@ -26,13 +25,17 @@ const ExpensesChart = (props) => {
         { label: 'Dec', value: 0 }
     ];
 
-    // 7. Iterate through the object and start writing in the values and months.
+    // 7. Iterate through the object and start writing in the values for
+    //    each month such that: month => value. Jan is in index 0.
     for (const expense of props.expenses) {
-        const expenseMonth = expense.getMonth();
+        const expenseMonth = expense.date.getMonth();
+        console.log('GINASAURUS: Expenses: expenseMonth: ',expenseMonth);
+        console.log('GINASAURUS: Expenses: amount: ',expense.amount);
         chartDataPoints[expenseMonth].value += expense.amount;
     }
+    console.log(chartDataPoints);
 
-    // 8. Then pass the collection of dataPoints into Chart.
+    // 8. Then pass the collection of dataPoints.
     return (
         <Chart
             dataPoints={chartDataPoints}
